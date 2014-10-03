@@ -509,7 +509,7 @@ var TouchScroll = (function(){
         // only handle Event if target is touch-scroll
         isTouchScrollEvent: function(event) {
             var parentDiv = '.' + innerScrollerClassName;
-            var childDiv = '.' + event.target.className.split(' ').join('.');
+            var childDiv = '.' + event.target.className.trim().split(' ').join('.');
 
             // check if target div is in innerScrollerDiv
             if(parentDiv == childDiv || $(parentDiv).find(childDiv).length == 1) {
