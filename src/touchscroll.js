@@ -517,8 +517,6 @@ var TouchScroll = (function(){
             }
 
             return false;
-
-            //return (event.target.className == innerScrollerClassName);
         },
 
         // Handles touch start events on the scroller
@@ -601,6 +599,8 @@ var TouchScroll = (function(){
         onTouchEnd: function onTouchEnd(event){
             var startTarget = this._startEventTarget;
 
+            this.removeMouseListener();
+
             if(!this._isScrolling && startTarget == event.target){
                 /*
                  If no scroll has been made, the touchend event should trigger
@@ -610,7 +610,7 @@ var TouchScroll = (function(){
                  a bug in android -- so we need to dispatch our own focus and
                  click events.
                  */
-                this.removeMouseListener();
+                //this.removeMouseListener();
 
                 var node = event.target;
                 while(node.nodeType != 1){
